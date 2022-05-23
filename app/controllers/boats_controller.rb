@@ -1,4 +1,8 @@
 class BoatsController < ApplicationController
+  def index
+    @boat = Boat.all
+  end
+
   def create
     @boat = Boat.new(boat_params)
     if @boat.save
