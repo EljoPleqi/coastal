@@ -12,8 +12,6 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
-    @reviews = @boat.review
   end
 
   def update
