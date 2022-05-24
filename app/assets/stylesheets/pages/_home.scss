@@ -47,17 +47,11 @@ p {
 // Boat container
 
 .featured-boats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
   overflow-x: auto;
 }
 
 .boat-cards {
   display: flex;
-
   gap: 1em;
 }
 
