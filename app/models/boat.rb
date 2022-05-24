@@ -6,10 +6,11 @@ class Boat < ApplicationRecord
   validates :photo, presence: true
   validates :title, presence: true
   validates :image, presence: true
-  validates :price, presence: true
+
   validates :city, presence: true
   validates :address, presence: true
-  validates :size, presence: true
-  validates :description, presence: true
+  validates :price, presence: true ,numericality: { other_than: 0 }
+  validates :size, presence: true ,numericality: { other_than: 0 }
+  validates ,:description, presence: true ,length: { minimum: 5 }
   
 end
