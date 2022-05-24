@@ -1,13 +1,21 @@
 // Specific CSS for your home-page
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-h1 {
+h1,
+h2,
+h3 {
   font-family: "Playfair Display", serif;
+}
+
+h4,
+p {
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .nav-items {
