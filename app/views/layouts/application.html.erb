@@ -13,8 +13,37 @@
   </head>
 
   <body>
+<!-- Navbar -->
+<div>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+      <div class="container">
+        <a class="logo" href="/">Coastal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <div class="mx-auto"></div>
+          <ul class="navbar-nav">
+            <%= link_to "Our Boats", new_user_session_url, class: "nav-item nav-link" %>
+            <%= link_to "Sign up", boats_path, class: "nav-item nav-link" %>
+            <%= link_to "List your boat", new_boat_url, class: "nav-item nav-link" %>
+            <%= link_to "Sign in", new_user_session_url, class: "nav-item nav-link" %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</div>
     <%= yield %>
       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      <p class="alert"><%= alert %></p>
   </body>
 </html>

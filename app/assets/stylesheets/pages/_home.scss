@@ -2,16 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 a {
   text-decoration: none;
 }
 .nav-link {
-  font-size: 1.2em;
   font-family: "Source Sans Pro", sans-serif;
   color: #f1f6f9;
 }
@@ -27,24 +21,19 @@ h4,
 p {
   font-family: "Source Sans Pro", sans-serif;
 }
-.navbar {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 4em;
-  position: relative;
-  padding: 0em 2em;
-  color: #f1f6f9;
-}
-.nav-items {
-  list-style: none;
-  gap: 1em;
+
+.nav-link {
+  font-size: 1.2em;
+  color: white;
 }
 
 .logo {
+  font-family: "Playfair Display", serif;
+  font-size: 2em;
   color: #f1f6f9;
 }
 
 .hero {
-  height: 100vh;
   background-image: url("https://images.unsplash.com/photo-1605387201622-8ebb9be0a9ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGJvYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800https://images.unsplash.com/photo-1605387201622-8ebb9be0a9ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940");
   background-size: cover;
   background-position: center;
@@ -52,14 +41,28 @@ p {
 
 .hero-text {
   color: #f1f6f9;
-  padding-left: 1em;
+  font-size: 3em;
 }
 
 // Boat container
 
 .featured-boats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 2em 2em;
   gap: 1em;
+}
+
+.boat-cards {
+  display: flex;
+  overflow-x: auto;
+  gap: 1em;
+}
+
+.boat-cards::-webkit-scrollbar {
+  width: 0;
 }
 
 .card {
@@ -74,6 +77,7 @@ p {
   }
 
   img {
+    background-color: #003852;
     width: auto;
     height: 200px;
     object-fit: cover;
