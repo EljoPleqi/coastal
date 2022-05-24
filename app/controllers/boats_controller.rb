@@ -1,13 +1,17 @@
 class BoatsController < ApplicationController
   def index
-    @boat = Boat.all
+    @boats = Boat.all
   end
 
   def create
     @boat = Boat.new(boat_params)
+    @boat.user = current_user
+
     if @boat.save
-      redirect_to boats_path
+      puts "done"
+      redirect_to boats_path(@bat)
     else
+      puts "not done"
       render :new
     end
   end
@@ -20,8 +24,8 @@ class BoatsController < ApplicationController
   end
 
   def update
-  @boat.update(boat_params)
-  redirect_to boats_path
+    @boat.update(boat_params)
+    redirect_to boats_path
   end
 
   def destroy
@@ -30,6 +34,7 @@ class BoatsController < ApplicationController
   end
 
   private
+
   def boat_params
     params.require(:boat).permit(:title, :image, :price, :city, :address, :size, :description)
   end
@@ -37,5 +42,4 @@ class BoatsController < ApplicationController
   def find_boat
     @boat = boat.find(params[:id])
   end
-
 end
