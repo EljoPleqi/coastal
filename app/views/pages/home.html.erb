@@ -1,13 +1,27 @@
 <div class="container"></div>
-  <div class="navbar">
-  <p class="logo">Coastal</p>
-  <ul class ="d-flex nav-items">
-    <li>about us</li>
-    <li>Our best listings</li>
-    <li>Sign up</li>
-  </ul>
-  </div>
   <div class="row d-flex hero">
-  <h1>Your Luxury Sailing Vacation Starts Here</h1>
+   <div class="navbar align-items-center">
+      <h1 class="logo">Coastal</h1>
+      <ul class ="d-flex nav-items">
+        <%= link_to "Our Boats", new_user_session_url, class: "nav-link" %>
+        <%= link_to "Sign up", boats_path, class: "nav-link" %>
+        <%= link_to "List your boat", new_boat_url, class: "nav-link" %>
+        <%= link_to "Sign in", new_user_session_url, class: "nav-link" %>
+      </ul>
+    </div>
+    <h1 class="hero-text">Your Luxury Sailing Vacation <br>Starts Here</h1>
   </div>
+</div>
+<div class="featured-boats d-flex">
+  <% @boats.each  do |boat| %>
+  <a href="<%=boat_path(boat)%>">
+    <div class="card" style="width: 18rem;">
+      <%=cl_image_tag boat.image.key, crop: :fill %>
+      <div class="card-body">
+        <h3 class="card-title"><%=boat.title%> </h3>
+        <p class="card-body"><%=  boat.description %></p>
+      </div>
+    </div>
+    </a>
+  <% end %>
 </div>

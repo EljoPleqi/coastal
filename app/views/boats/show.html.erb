@@ -10,20 +10,23 @@
   <%= booking.check_out %>
 <% end %>
 
+<% @boat.reviews.each do |review| %>
+  <%= review.rating %>
+  <%= review.content %>
+<% end %>
 </div>
 <%# to be shown only if user is authenticated %>
 
 <%= link_to "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
 <%= link_to "Delete Listing", boat_path,  method: :delete, class: "btn btn-danger"%>
 
-  
+
 <%# Visible only if user is not authenticated %>
 <%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
 
 
 <%# visible only if the user had a stay in this boat %>
 
-<%= render 'reviews/form',  booking: Booking.where(boat: @boat, user:current_user) %>
-
-</div>
-
+<% if !Booking.where(boat: @boat, user:current_user).first.nil? %>
+  <%= render 'reviews/reviews_form',  booking: Booking.where(boat: @boat, user:current_user).first, review: Review.new %>
+<% end %>
