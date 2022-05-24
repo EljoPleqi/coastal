@@ -1,6 +1,6 @@
 class Boat < ApplicationRecord
   belongs_to :user
-  has_one_attached :photo
+  has_one_attached :image
 
-  validates :photo, presence: true
+  validates :image, presence: true
 end

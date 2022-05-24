@@ -1,0 +1,34 @@
+<h1><strong><%= current_user.name %></strong> here's your bookings</h1>
+<% if @bookings.empty? %>
+  <div class="d-flex justify-content-center mt-5">
+    <p><small><em>- Make your first Bookings with US!</em></small></p>
+  </div>
+  <% else %>
+  <div class="flex-card-b d-flex justify-content-center flex-wrap mt-5">
+    <% @bookings.reverse.each do |booking| %>
+
+        <div class="card-flat-b mb-3">
+          <img src="<%= booking.boat.image_url %>" alt="boat_photo">
+          <div>
+              <small><%= booking.boat.city %></small>
+              <h3><%= booking.boat.title.upcase %></h3>
+
+            <div class="info-size w-100">
+              <em><p>Your Booking Details</p></em>
+                <p>Check In Date: <em><%= booking.check_in.strftime('%d-%m-%Y') %></em></p>
+                <p>Check Out Date: <em><%= booking.check_out.strftime('%d-%m-%Y') %> </em></p>
+              <span><p>Total: <i class="fas fa-euro-sign mx-2 mt-1"></i> <strong style="color: #FF5A5E"><%= (booking.flat.price * (booking.check_out - booking.check_in).to_i).to_i %></strong></p></span>
+            </div>
+            <div class="info-buttons d-flex">
+              <%= link_to "More info", boat_path(booking.boat.id), target: "_blank" %>
+              <%= link_to "Leave a Review", booking_path(booking.id) %>
+            </div>
+            <% if Date.today < booking.check_out %>
+              <div class="leave-review"><%= link_to "Cancel Reservation", booking_path(booking.id), method: :delete, data: { confirm: "Are you sure you want to cancel this reservation?" }, class: "delete", remote: true %></div>
+            <% end %>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+<% end %>
