@@ -47,11 +47,7 @@ p {
 // Boat container
 
 .featured-boats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
+  margin-left: 1em;
   overflow-x: auto;
 }
 
