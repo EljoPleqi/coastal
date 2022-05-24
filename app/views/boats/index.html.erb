@@ -1,2 +1,13 @@
-<h1>all boats</h1>
-<%= @boats %>
+
+  <div class="col-sm-12 d-flex flex-wrap flex-gap-2">
+    <% @boats.each  do |boat| %>
+    <div class="card" style="width: 18rem;">
+    <%=cl_image_tag boat.image.key, crop: :fill %>
+    <div class="card-body">
+    <h5 class="card-title"><%=boat.title%> </h5>
+        <%= link_to "Learn more", boat_path(boat), class: 'btn btn-primary'%>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
