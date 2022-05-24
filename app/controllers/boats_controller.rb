@@ -1,4 +1,5 @@
 class BoatsController < ApplicationController
+  before_action :find_boat, only: [:show, :edit, :update, :destroy]
   def index
     @boats = Boat.all
   end
@@ -6,10 +7,9 @@ class BoatsController < ApplicationController
   def create
     @boat = Boat.new(boat_params)
     @boat.user = current_user
-
     if @boat.save
       puts "done"
-      redirect_to boats_path(@bat)
+      redirect_to boats_path(@boat)
     else
       puts "not done"
       render :new
@@ -40,6 +40,6 @@ class BoatsController < ApplicationController
   end
 
   def find_boat
-    @boat = boat.find(params[:id])
+    @boat = Boat.find(params[:id])
   end
 end
