@@ -1,19 +1,31 @@
 
+<div >
+  <img src="<%= cl_image_path @boat.image.key %>" alt="" class="featured-image">
+</div>
+<div class="boat-page">
+  <div class=" boat-details">
+    <p class="title"><%= @boat.title %></p>
+    <p class="boat-info">price: <%= @boat.price %></p>
+    <p class="boat-info">space: <%= @boat.size %></p>
+  </div>
 
-<div class="container">
-<h1><%= @boat.title %></h1>
-<p><%= @boat.address %>, <%= @boat.city %></p>
+  <p><%= @boat.address %>, <%= @boat.city %></p>
+  <p><%= @boat.description %></p>
 
 <div class="row">
-<% @boat.bookings.each do |booking| %>
-  <%= booking.check_in %>
-  <%= booking.check_out %>
-<% end %>
+  <ul class="ammenities">
+    <li>air conditioning</li>
+    <li>bathtube</li>
+    <li>built in aquiarium *fish included*</li>
+    <li>Early 20s century interior</li>
+  </ul>
+</div>
 
-<% @boat.reviews.each do |review| %>
-  <%= review.rating %>
-  <%= review.content %>
-<% end %>
+<div class="row">
+  <% @boat.reviews.each do |review| %>
+    <%= review.rating %>
+    <%= review.content %>
+  <% end %>
 </div>
 <%# to be shown only if user is authenticated %>
 

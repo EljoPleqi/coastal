@@ -1,27 +1,28 @@
-<div class="container"></div>
-  <div class="row d-flex hero">
-   <div class="navbar align-items-center">
-      <h1 class="logo">Coastal</h1>
-      <ul class ="d-flex nav-items">
-        <%= link_to "Our Boats", new_user_session_url, class: "nav-link" %>
-        <%= link_to "Sign up", boats_path, class: "nav-link" %>
-        <%= link_to "List your boat", new_boat_url, class: "nav-link" %>
-        <%= link_to "Sign in", new_user_session_url, class: "nav-link" %>
-      </ul>
+<%# hero section %>
+
+ <div class="hero w-100 vh-100 vh-100 d-flex justify-content-center align-items-center">
+    <div class="content text-center">
+      <h1 class="hero-text">Your Luxury Sailing Vacation <br>Starts Here</h1>
     </div>
-    <h1 class="hero-text">Your Luxury Sailing Vacation <br>Starts Here</h1>
+  </div>
+<%# features section %>
+<div class="featured-boats">
+  <h2>Our Top Adventours</h2>
+  <div class="boat-cards">
+    <% @boats.each  do |boat| %>
+      <a href="<%=boat_path(boat)%>">
+        <div class="card" >
+          <%=cl_image_tag boat.image.key, crop: :fill %>
+          <div class="card-body">
+            <h3 class="card-title"><%=boat.title%> </h3>
+            <p class="card-body"><%=  boat.description %></p>
+          </div>
+        </div>
+      </a>
+    <% end %>
   </div>
 </div>
-<div class="featured-boats d-flex">
-  <% @boats.each  do |boat| %>
-  <a href="<%=boat_path(boat)%>">
-    <div class="card" style="width: 18rem;">
-      <%=cl_image_tag boat.image.key, crop: :fill %>
-      <div class="card-body">
-        <h3 class="card-title"><%=boat.title%> </h3>
-        <p class="card-body"><%=  boat.description %></p>
-      </div>
-    </div>
-    </a>
-  <% end %>
+
+<div class="featured-reviews">
+
 </div>

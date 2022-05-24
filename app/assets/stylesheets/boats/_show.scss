@@ -1,0 +1,28 @@
+.featured-image {
+  width: 100%;
+  object-fit: cover;
+}
+.boat-page {
+  display: flex;
+  flex-direction: column;
+  margin: 0em 2em;
+}
+
+.title {
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+}
+.boat-info {
+  font-size: 1.2em;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.boat-details {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.ammenities {
+  padding-left: 1em;
+  list-style: none;
+}
