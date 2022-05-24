@@ -1,7 +1,17 @@
+<h1><%= @boat.title %></h1>
+
+<div class="mx-5 text-center">
+  <h1><%= @boat.title %></h1>
+  <p><%= @boat.address %>, <%= @boat.city %></p>
+  <div class="d-flex justify-content-center">
+    <p><%= pluralize(@boat.reviews.size, "Review") %>&nbsp;</p>
+    <span><i class="fas fa-star"></i></span>
+  </div>
+</div>
+
 
 <h1><%= @boat.title %></h1>
 <p><%= @boat.address %>, <%= @boat.city %></p>
-
 
 <% @boat.bookings.each do |booking| %>
   <%= booking.check_in %>
