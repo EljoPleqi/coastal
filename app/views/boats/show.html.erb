@@ -18,13 +18,18 @@
 =======
 >>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
 
+
+<div class="container">
 <h1><%= @boat.title %></h1>
 <p><%= @boat.address %>, <%= @boat.city %></p>
 
+<div class="row">
 <% @boat.bookings.each do |booking| %>
   <%= booking.check_in %>
   <%= booking.check_out %>
 <% end %>
+
+</div>
 <%# to be shown only if user is authenticated %>
 
 <<<<<<< HEAD
@@ -54,7 +59,18 @@
 <%= link_to "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
 <%= link_to "Delete Listing", boat_path,  method: :delete, class: "btn btn-danger"%>
 
+  
 <%# Visible only if user is not authenticated %>
-
 <%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
+<<<<<<< HEAD
 >>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
+=======
+
+
+<%# visible only if the user had a stay in this boat %>
+
+<%= render 'reviews/form',  booking: Booking.where(boat: @boat, user:current_user) %>
+
+</div>
+
+>>>>>>> 5308f6feba3ca61f55441d5a47bb8b369f2086d7
