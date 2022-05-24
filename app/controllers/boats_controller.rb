@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
   def index
-    @boat = Boat.all
+    @boats = Boat.all
   end
 
   def create
