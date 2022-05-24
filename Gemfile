@@ -67,5 +67,3 @@ gem 'devise'
 
 #handles image upload and storage
 gem 'cloudinary', '~> 1.16.0'
-
-gem "tailwindcss-rails", "~> 2.0"

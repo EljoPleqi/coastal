@@ -57,7 +57,7 @@ p {
 
 .boat-cards {
   display: flex;
-  overflow-x: auto;
+  overflow-x: hidden;
   gap: 1em;
 }
 
