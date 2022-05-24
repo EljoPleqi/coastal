@@ -1,6 +1,7 @@
 class Boat < ApplicationRecord
   belongs_to :user
-  has_one_attached :photo
+  has_many :bookings, dependent: :destroy
+  has_one_attached :image
 
   validates :photo, presence: true
   validates :title, presence: true
@@ -10,4 +11,5 @@ class Boat < ApplicationRecord
   validates :address, presence: true
   validates :size, presence: true
   validates :description, presence: true
+  
 end
