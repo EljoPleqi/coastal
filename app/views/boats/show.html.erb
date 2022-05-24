@@ -1,2 +1,58 @@
+<div class="mx-5 text-center">
+  <h1><%= @boat.title %></h1>
+  <p><%= @boat.address %>, <%= @boat.city %></p>
+  <div class="d-flex justify-content-center">
+    <p><%= pluralize(@boat.reviews.size, "Review") %>&nbsp;</p>
+    <span><i class="fas fa-star"></i></span>
+  </div>
+</div>
 
-<h1><%= @boat.title %></h1>
+<div class="d-flex justify-content-center">
+      <div class="about-flat d-flex">
+        <img src="<%= @boat.image_url %>" alt="boat_image">
+        <div class="d-flex flex-column">
+          <h3>Boat Owner: <%= @boat.user.name %></h3>
+          <p><%= @boat.description %></p>
+          <div class="d-flex p-3 c-gap">
+            <div class="d-flex flex-column">
+              <p><i class="fa-solid fa-sailboat"></i> <%= @boat.size %></p>
+              <p><i class="fas fa-euro-sign"></i> <%= @boat.price.to_i %>/night</p>
+            </div>
+            <div class="d-flex flex-column">
+              <p><i class="far fa-map"></i> City</p>
+            </div>
+          </div>
+          <div class="m-auto"
+               style="width: 80%; height: 40%;"
+               data-markers="<%= @marker.to_json %>"
+               data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    <div class="d-flex">
+      <%= render 'bookings/form', booking: @booking %>
+    </div>
+</div>
+
+
+  <div class="container">
+    <div class="d-flex justify-content-around">
+      <div class="flex-grow-1 mr-5 mb-3 p-3">
+        <h5>Reviews</h5>
+        <% @reviews.each do |review| %>
+          <ul class="lists list-group list-group-flush">
+            <li class="border-bottom">
+              <span><%= review.booking.user.name %></span>
+              <small class="mx-3"><%= distance_of_time_in_words(Time.now, review.created_at) %> ago</small>
+             <div class="d-flex mt-1">
+              <% review.rating.times do %>
+                <i class="fas fa-star" style="color:#E31C5E;"></i>
+              <% end %>
+              </div>
+              <p <%= review.id %>><%= review.content %></p>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
