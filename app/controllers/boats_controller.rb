@@ -11,6 +11,7 @@ class BoatsController < ApplicationController
       render :new
     end
   end
+
   def new
     @boat = Boat.new
   end
