@@ -1,14 +1,3 @@
-<h1><%= @boat.title %></h1>
-
-<div class="mx-5 text-center">
-  <h1><%= @boat.title %></h1>
-  <p><%= @boat.address %>, <%= @boat.city %></p>
-  <div class="d-flex justify-content-center">
-    <p><%= pluralize(@boat.reviews.size, "Review") %>&nbsp;</p>
-    <span><i class="fas fa-star"></i></span>
-  </div>
-</div>
-
 
 <h1><%= @boat.title %></h1>
 <p><%= @boat.address %>, <%= @boat.city %></p>
@@ -25,4 +14,3 @@
 <%# Visible only if user is not authenticated %>
 
 <%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
-
