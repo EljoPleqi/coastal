@@ -1,16 +1,28 @@
 
+<div class="container">
 <h1><%= @boat.title %></h1>
 <p><%= @boat.address %>, <%= @boat.city %></p>
 
+<div class="row">
 <% @boat.bookings.each do |booking| %>
   <%= booking.check_in %>
   <%= booking.check_out %>
 <% end %>
+
+</div>
 <%# to be shown only if user is authenticated %>
 
 <%= link_to "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
 <%= link_to "Delete Listing", boat_path,  method: :delete, class: "btn btn-danger"%>
 
-<%# Visible only if user is not authenticated %>
 
+
+<%# Visible only if user is not authenticated %>
 <%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
+
+
+<%# visible only if the user had a stay in this boat %>
+
+<%= render 'reviews/form',  booking: Booking.where(boat: @boat, user:current_user) %>
+
+</div>

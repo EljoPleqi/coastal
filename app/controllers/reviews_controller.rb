@@ -1,11 +1,10 @@
 class ReviewsController < ApplicationController
-
   def create
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
 
     if @review.save
-      redirect_to boat_path(@review.booking.boat, anchor: "review-#{@review.id}")
+      redirect_to boat_path(@review.booking.boat)
     else
       render :new
     end
