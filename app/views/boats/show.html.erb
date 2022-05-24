@@ -1,3 +1,4 @@
+
 <h1><%= @boat.title %></h1>
 <p><%= @boat.address %>, <%= @boat.city %></p>
 
@@ -14,3 +15,4 @@
 <%# Visible only if user is not authenticated %>
 
 <%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
+
