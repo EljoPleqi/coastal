@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h1>Boats Show</h1>
 =======
 
@@ -14,35 +15,19 @@
     <span><i class="fas fa-star"></i></span>
   </div>
 </div>
+=======
+>>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
 
-<div class="d-flex justify-content-center">
-      <div class="about-flat d-flex">
-        <img src="<%= @boat.image_url %>" alt="boat_image">
-        <div class="d-flex flex-column">
-          <h3>Boat Owner: <%= @boat.user.name %></h3>
-          <p><%= @boat.description %></p>
-          <div class="d-flex p-3 c-gap">
-            <div class="d-flex flex-column">
-              <p><i class="fa-solid fa-sailboat"></i> <%= @boat.size %></p>
-              <p><i class="fas fa-euro-sign"></i> <%= @boat.price.to_i %>/night</p>
-            </div>
-            <div class="d-flex flex-column">
-              <p><i class="far fa-map"></i> City</p>
-            </div>
-          </div>
-          <div class="m-auto"
-               style="width: 80%; height: 40%;"
-               data-markers="<%= @marker.to_json %>"
-               data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>
-      </div>
-    <div class="d-flex">
-      <%= render 'bookings/form', booking: @booking %>
-    </div>
-</div>
+<h1><%= @boat.title %></h1>
+<p><%= @boat.address %>, <%= @boat.city %></p>
 
+<% @boat.bookings.each do |booking| %>
+  <%= booking.check_in %>
+  <%= booking.check_out %>
+<% end %>
+<%# to be shown only if user is authenticated %>
 
+<<<<<<< HEAD
   <div class="container">
     <div class="d-flex justify-content-around">
       <div class="flex-grow-1 mr-5 mb-3 p-3">
@@ -65,3 +50,11 @@
     </div>
   </div>
 >>>>>>> 19227b21ebc62118828e880d2ad0b00665d74c39
+=======
+<%= link_to "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
+<%= link_to "Delete Listing", boat_path,  method: :delete, class: "btn btn-danger"%>
+
+<%# Visible only if user is not authenticated %>
+
+<%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
+>>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
