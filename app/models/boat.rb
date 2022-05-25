@@ -2,9 +2,9 @@ class Boat < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
-  has_one_attached :image
+  has_many_attached :images
 
-  validates :image, presence: true
+  validates :images, presence: true
   validates :title, presence: true
 
   validates :address, presence: true

@@ -1,6 +1,11 @@
 
 <div >
-  <img src="<%= cl_image_path @boat.image.key %>" alt="" class="featured-image">
+  <img src="<%= cl_image_path @boat.images[0].key %>" alt="" class="featured-image">
+  <div class ="d-flex">
+  <% @boat.images.each do |image| %>
+  <%= cl_image_tag image.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+  </div>
 </div>
 <div class="boat-page">
   <div class=" boat-details">
