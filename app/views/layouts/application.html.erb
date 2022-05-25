@@ -34,9 +34,16 @@
           <div class="mx-auto"></div>
           <ul class="navbar-nav">
             <%= link_to "Our Boats", new_user_session_url, class: "nav-item nav-link" %>
-            <%= link_to "Sign up", boats_path, class: "nav-item nav-link" %>
             <%= link_to "List your boat", new_boat_url, class: "nav-item nav-link" %>
-            <%= link_to "Sign in", new_user_session_url, class: "nav-item nav-link" %>
+            <% if !user_signed_in? %>
+              <%= link_to "Sign up", boats_path, class: "nav-item nav-link" %>
+              <%= link_to "Sign in", new_user_session_url, class: "nav-item nav-link" %>
+            <% else %>
+              <p class="nav-item nav-link">
+              <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+              <%# <%= cl_image_tag current_user.avatar.key, height: 50, width: 50, crop: :fill %> %>
+              <%= link_to "Log Out",  destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+            <% end %>
           </ul>
         </div>
       </div>

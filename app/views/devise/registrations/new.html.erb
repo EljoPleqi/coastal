@@ -12,9 +12,12 @@
                         autofocus: true,
                         input_html: { autocomplete: "first_name" } %>
             <%= f.input :last_name,
+                        required: true %>
+            <%= f.input :avatar,
                         required: true,
+                        as: :file,
                         autofocus: true,
-                        input_html: { autocomplete: "last_name" } %>
+                        input_html: { autocomplete: "image" } %>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
