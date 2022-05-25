@@ -52,9 +52,6 @@ p {
 }
 
 .featured-boats {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 2em 0em;
   overflow-x: auto;
   padding-left: 1em;
@@ -92,7 +89,6 @@ p {
 
 @media only screen and (max-min: 960px) {
   .featured-boats {
-    display: inline-block;
     overflow: none;
   }
 }
