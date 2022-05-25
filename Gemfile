@@ -70,3 +70,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 #adds maps
 gem "geocoder"
+
+#handles authorisation
+
+gem 'pundit'

@@ -22,7 +22,11 @@ p {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.nav-link {
+.bg-dark {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-nav .nav-item {
   font-size: 1.2em;
   color: white;
 }
@@ -34,7 +38,8 @@ p {
 }
 
 .hero {
-  background-image: url("https://images.unsplash.com/photo-1605387201622-8ebb9be0a9ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGJvYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800https://images.unsplash.com/photo-1605387201622-8ebb9be0a9ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1605387201622-8ebb9be0a9ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGJvYXR8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=800https://images.unsplash.com/photo-1605387201622-8ebb9be0a9ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940");
   background-size: cover;
   background-position: center;
 }
@@ -45,6 +50,10 @@ p {
 }
 
 // Boat container
+
+.featured {
+  margin: 4em 2em;
+}
 
 .featured-boats {
   margin: 2em 0em;
