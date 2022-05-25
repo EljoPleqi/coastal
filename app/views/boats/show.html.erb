@@ -18,17 +18,33 @@
 =======
 >>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
 
+<div >
+  <img src="<%= cl_image_path @boat.image.key %>" alt="" class="featured-image">
+</div>
+<div class="boat-page">
+  <div class=" boat-details">
+    <p class="title"><%= @boat.title %></p>
+    <p class="boat-info">price: <%= @boat.price %></p>
+    <p class="boat-info">space: <%= @boat.size %></p>
+  </div>
 
-<div class="container">
-<h1><%= @boat.title %></h1>
-<p><%= @boat.address %>, <%= @boat.city %></p>
+  <p><%= @boat.address %>, <%= @boat.city %></p>
+  <p><%= @boat.description %></p>
 
 <div class="row">
-<% @boat.bookings.each do |booking| %>
-  <%= booking.check_in %>
-  <%= booking.check_out %>
-<% end %>
+  <ul class="ammenities">
+    <li>air conditioning</li>
+    <li>bathtube</li>
+    <li>built in aquiarium *fish included*</li>
+    <li>Early 20s century interior</li>
+  </ul>
+</div>
 
+<div class="row">
+  <% @boat.reviews.each do |review| %>
+    <%= review.rating %>
+    <%= review.content %>
+  <% end %>
 </div>
 <%# to be shown only if user is authenticated %>
 
@@ -59,7 +75,7 @@
 <%= link_to "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
 <%= link_to "Delete Listing", boat_path,  method: :delete, class: "btn btn-danger"%>
 
-  
+
 <%# Visible only if user is not authenticated %>
 <%= link_to "Book this boat", new_boat_booking_url(@boat), class: "btn btn-success" %>
 <<<<<<< HEAD
@@ -69,8 +85,14 @@
 
 <%# visible only if the user had a stay in this boat %>
 
+<<<<<<< HEAD
 <%= render 'reviews/form',  booking: Booking.where(boat: @boat, user:current_user) %>
 
 </div>
 
 >>>>>>> 5308f6feba3ca61f55441d5a47bb8b369f2086d7
+=======
+<% if !Booking.where(boat: @boat, user:current_user).first.nil? %>
+  <%= render 'reviews/reviews_form',  booking: Booking.where(boat: @boat, user:current_user).first, review: Review.new %>
+<% end %>
+>>>>>>> 714a125d4aaeb544a7c8a38de0cb425c79d0b35e
