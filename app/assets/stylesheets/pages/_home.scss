@@ -47,6 +47,7 @@ p {
 // Boat container
 
 .featured-boats {
+  margin: 2em 0em;
   overflow-x: auto;
   padding-left: 1em;
 }
@@ -78,5 +79,11 @@ p {
     object-fit: cover;
     border-top-left-radius: 11px;
     border-top-right-radius: 11px;
+  }
+}
+
+@media only screen and (max-min: 960px) {
+  .featured-boats {
+    overflow: none;
   }
 }

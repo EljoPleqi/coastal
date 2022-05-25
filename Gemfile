@@ -67,3 +67,6 @@ gem 'devise'
 
 #handles image upload and storage
 gem 'cloudinary', '~> 1.16.0'
+
+#adds maps
+gem "geocoder"
