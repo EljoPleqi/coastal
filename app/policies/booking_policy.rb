@@ -7,5 +7,13 @@ class BookingPolicy < ApplicationPolicy
     # end
   end
 
+   def new?
+    true
+  end
+
+  def create?
+    # user_signed_in?
+    true
+  end
 
 end
