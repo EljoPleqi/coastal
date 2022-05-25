@@ -9,7 +9,9 @@ class BoatPolicy < ApplicationPolicy
   def index?
     true
   end
-
+  def new?
+    true
+  end
   def show?
     true
   end

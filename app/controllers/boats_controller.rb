@@ -18,7 +18,6 @@ class BoatsController < ApplicationController
       puts "not done"
       render :new
     end
-
   end
 
   def new
@@ -32,7 +31,7 @@ class BoatsController < ApplicationController
         lat: @boat.latitude,
         lng: @boat.longitude
       }]
-      authorize @boat
+    authorize @boat
   end
 
   def update
