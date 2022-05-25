@@ -92,6 +92,7 @@ p {
 
 @media only screen and (max-min: 960px) {
   .featured-boats {
+    display: inline-block;
     overflow: none;
   }
 }
