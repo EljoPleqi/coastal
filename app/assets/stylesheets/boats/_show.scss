@@ -2,6 +2,9 @@
   width: 100%;
   object-fit: cover;
 }
+.boat-images {
+  overflow-x: auto;
+}
 .boat-page {
   display: flex;
   flex-direction: column;
