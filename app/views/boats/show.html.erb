@@ -9,7 +9,7 @@
     <p class="boat-info">space: <%= @boat.size %></p>
   </div>
 
-  <p><%= @boat.address %>, <%= @boat.city %></p>
+  <p><%= @boat.address %></p>
   <p><%= @boat.description %></p>
 
 <div class="row">
@@ -19,6 +19,12 @@
     <li>built in aquiarium *fish included*</li>
     <li>Early 20s century interior</li>
   </ul>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
 <div class="row">
