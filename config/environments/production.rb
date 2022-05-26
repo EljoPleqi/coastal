@@ -117,9 +117,4 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  production:
-  cloud_name: "doc1ecbpj"
-  api_key: "713591728444149"
-  api_secret: "R0mz_uOU7xYM7kWggGs_YJ9hH1s"
-  secure:true
 end

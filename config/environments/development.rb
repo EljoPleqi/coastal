@@ -74,9 +74,4 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  development:
-  cloud_name: "doc1ecbpj"
-  api_key: "713591728444149"
-  api_secret: "R0mz_uOU7xYM7kWggGs_YJ9hH1s"
-  secure: true
 end
