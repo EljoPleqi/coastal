@@ -1,6 +1,7 @@
 class BoatPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
+
     def resolve
       scope.all
     end
@@ -9,9 +10,11 @@ class BoatPolicy < ApplicationPolicy
   def index?
     true
   end
+
   def new?
     true
   end
+
   def show?
     true
   end
@@ -21,7 +24,7 @@ class BoatPolicy < ApplicationPolicy
   end
 
   def destroy?
-   true
+    true
   end
 
   def create?

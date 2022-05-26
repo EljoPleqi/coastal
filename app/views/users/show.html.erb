@@ -1,0 +1,16 @@
+<h1>Welcome <%= @user.first_name %></h1>
+
+<div class="bookings">
+  <% @user.bookings.each do |booking| %>
+    <% boat = Boat.find(booking.boat_id) %>
+    <a href="<%=boat_path(boat)%>">
+          <div class="booking-card" >
+            <%=cl_image_tag boat.images[0].key, crop: :fill %>
+            <div class="card-body">
+              <h3 class="card-title"><%=boat.title%> </h3>
+              <p class="card-body"><%=  boat.description %></p>
+            </div>
+          </div>
+        </a>
+  <% end %>
+</div>
