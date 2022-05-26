@@ -2,48 +2,62 @@
   <img src="<%= cl_image_path @boat.images[0].key %>" alt="" class="featured-image">
   <div class ="d-flex boat-images">
   <% @boat.images.each do |image| %>
-  <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill %>
+  <%= cl_image_tag image.key, height: 100, width: 100, crop: :fill %>
 <% end %>
   </div>
 </div>
 <div class="boat-page">
-  <div class=" boat-details">
+
+  <div class="boat-details mt-5 mb-5">
     <p class="title"><%= @boat.title %></p>
-      <div class="d-flex justify-content-center">
-    <p><%= pluralize(@boat.reviews.size, "Review") %>&nbsp;</p>
-    <span><i class="fas fa-star"></i></span>
   </div>
+
+  <div class="mt-5 mb-5">
+  <div class="d-flex">
+        <p><%= pluralize(@boat.reviews.size, "Review") %>&nbsp;</p>
+        <span><i class="fas fa-star"></i></span>
+    </div>
     <p class="boat-info">price: <%= @boat.price %></p>
     <p class="boat-info">space: <%= @boat.size %></p>
+    <p><%= @boat.address %></p>
+    <p><%= @boat.description %></p>
   </div>
 
-  <p><%= @boat.address %></p>
-  <p><%= @boat.description %></p>
 
-<div class="row">
-  <ul class="ammenities">
-    <li>air conditioning</li>
-    <li>bathtube</li>
-    <li>built in aquiarium *fish included*</li>
-    <li>Early 20s century interior</li>
-  </ul>
-</div>
 
-<div style="width: 100%; height: 600px;"
+
+
+
+
+<div style="width: 100%; height: 400px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
   data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<div class="row">
+<div class="reviews row mt-5 mb-5">
   <% @boat.reviews.each do |review| %>
-    <%= review.rating %>
-    <%= review.content %>
+    <div class="review">
+      <div>
+        <%= cl_image_tag review.user.avatar.key, height: 500, width: 500, crop: :fill %>
+      </div>
+        <div class="review-content">
+          <div>
+            <% review.rating.to_i.times do  %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <div class="rev-user-details">
+           <div class="rev-username"><%= review.user.first_name %></div>
+          <%= review.content %>
+          </div>
+        </div>
+    </div>
   <% end %>
 </div>
 <%# to be shown only if user is authenticated %>
 
- "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
+<%= link_to "Edit Listing", edit_boat_url(@boat), class: "btn btn-warning" %>
 <%= link_to "Delete Listing", boat_path,  method: :delete, class: "btn btn-danger"%>
 
 

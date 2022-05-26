@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = booking
     @review.user = current_user
+    authorize @review
 
     if @review.save
       redirect_to boat_path(@review.booking.boat)

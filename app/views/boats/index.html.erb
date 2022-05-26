@@ -1,18 +1,24 @@
 
-  <div class="col-sm-12 d-flex flex-wrap flex-gap-2">
-
-<div class="featured-boats">
-  <div class="boat-cards">
-    <% @boats.each  do |boat| %>
-      <a href="<%=boat_path(boat)%>">
-        <div class="card" >
-          <%=cl_image_tag boat.images[0].key, crop: :fill %>
-          <div class="card-body">
-            <h3 class="card-title"><%=boat.title%> </h3>
-            <p class="card-body"><%=  boat.description %></p>
+<div class="col-sm-12 d-flex flex-wrap flex-gap-2">
+  <div class="featured-boats">
+    <div class="boat-cards">
+      <% @boats.each  do |boat| %>
+        <a href="<%=boat_path(boat)%>">
+          <div class="card" >
+            <%=cl_image_tag boat.images[0].key, crop: :fill %>
+            <div class="card-body">
+             <div>
+              <h3 class="card-title"><%=boat.title%> </h3>
+              <p><%=  boat.description %></p>
+              </div>
+              <div class="boat-owner">
+                <%= cl_image_tag Boat.find(boat.id).user.avatar.key, height: 500, width: 500, crop: :fill %>
+                <p><%=boat.user.first_name%> <%= boat.user.last_name %></p>
+              </div>
+            </div>
           </div>
-        </div>
-      </a>
-    <% end %>
+        </a>
+      <% end %>
+    </div>
   </div>
 </div>

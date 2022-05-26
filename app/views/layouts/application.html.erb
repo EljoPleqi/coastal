@@ -41,7 +41,7 @@
             <% else %>
               <p class="nav-item nav-link">
               <%= link_to "#{current_user.first_name} #{current_user.last_name}", user_profile_url(current_user) %></p>
-              <%# <%= cl_image_tag current_user.avatar.key, height: 50, width: 50, crop: :fill %>
+              <%= cl_image_tag current_user.avatar.key, height: 500, width: 500, crop: :fill, class: "user-avatar"%>
               <%= link_to "Log Out",  destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
             <% end %>
           </ul>
