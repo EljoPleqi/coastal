@@ -1,5 +1,4 @@
 class BoatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :find_boat, :show ]
   before_action :find_boat, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -26,11 +25,7 @@ class BoatsController < ApplicationController
   end
 
   def show
-    @markers =
-    [{
-        lat: @boat.latitude,
-        lng: @boat.longitude
-      }]
+    @markers = [{ lat: @boat.latitude, lng: @boat.longitude }]
     authorize @boat
   end
 
@@ -52,6 +47,6 @@ class BoatsController < ApplicationController
 
   def find_boat
     @boat = Boat.find(params[:id])
-    # authorize @boat
+    authorize @boat
   end
 end
