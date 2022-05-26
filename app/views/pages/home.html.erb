@@ -41,29 +41,31 @@
 </div>
 
 
-
-<div class="featured-reviews">
-  <div class="reviews mt-5 mb-5">
-    <% Boat.all.each do |boat| %>
-      <% boat.reviews.each do |review| %>
-        <div class="review">
-          <div>
-            <%= cl_image_tag review.user.avatar.key, height: 500, width: 500, crop: :fill %>
-          </div>
-            <div class="review-content">
-              <div>
-                <% review.rating.to_i.times do  %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-              </div>
-              <div class="rev-user-details">
-              <div class="rev-username"><%= review.user.first_name %></div>
-              <%= review.content %>
-              </div>
+<div class="featured">
+  <h2>Sailors Words</h2>
+  <div class="featured-reviews">
+    <div class="reviews mt-5 mb-5">
+      <% Boat.all.each do |boat| %>
+        <% boat.reviews.each do |review| %>
+          <div class="review">
+            <div>
+              <%= cl_image_tag review.user.avatar.key, height: 500, width: 500, crop: :fill %>
             </div>
-        </div>
+              <div class="review-content">
+                <div>
+                  <% review.rating.to_i.times do  %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                </div>
+                <div class="rev-user-details">
+                <div class="rev-username"><%= review.user.first_name %></div>
+                <%= review.content %>
+                </div>
+              </div>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 
