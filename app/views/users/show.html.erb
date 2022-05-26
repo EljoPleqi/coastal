@@ -1,6 +1,7 @@
 <h1>Welcome <%= @user.first_name %></h1>
 
 <div class="bookings">
+<h2>Here are your upcoming bookings</h2>
   <% @user.bookings.each do |booking| %>
     <% boat = Boat.find(booking.boat_id) %>
     <a href="<%=boat_path(boat)%>">
