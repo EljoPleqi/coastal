@@ -4,6 +4,11 @@ class BoatsController < ApplicationController
 
   def index
     @boats = policy_scope(Boat)
+      if params[:query].present?
+        @boats = Boat.where("title ILIKE ?", "%#{params[:query]}%")
+      else
+        @boats = Boat.all
+      end
   end
 
   def create
