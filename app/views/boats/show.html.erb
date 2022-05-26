@@ -19,7 +19,12 @@
 >>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
 
 <div >
-  <img src="<%= cl_image_path @boat.image.key %>" alt="" class="featured-image">
+  <img src="<%= cl_image_path @boat.images[0].key %>" alt="" class="featured-image">
+  <div class ="d-flex boat-images">
+  <% @boat.images.each do |image| %>
+  <%= cl_image_tag image.key, height: 300, width: 300, crop: :fill %>
+<% end %>
+  </div>
 </div>
 <div class="boat-page">
   <div class=" boat-details">
@@ -28,7 +33,7 @@
     <p class="boat-info">space: <%= @boat.size %></p>
   </div>
 
-  <p><%= @boat.address %>, <%= @boat.city %></p>
+  <p><%= @boat.address %></p>
   <p><%= @boat.description %></p>
 
 <div class="row">
@@ -38,6 +43,12 @@
     <li>built in aquiarium *fish included*</li>
     <li>Early 20s century interior</li>
   </ul>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
 <div class="row">

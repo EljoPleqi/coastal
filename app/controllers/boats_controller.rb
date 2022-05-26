@@ -1,12 +1,16 @@
 class BoatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :find_boat, :show ]
   before_action :find_boat, only: [:show, :edit, :update, :destroy]
+
   def index
-    @boats = Boat.all
+    @boats = policy_scope(Boat)
   end
 
   def create
     @boat = Boat.new(boat_params)
     @boat.user = current_user
+    authorize @boat
+
     if @boat.save
       puts "done"
       redirect_to boats_path(@boat)
@@ -18,9 +22,16 @@ class BoatsController < ApplicationController
 
   def new
     @boat = Boat.new
+    authorize @boat
   end
 
   def show
+    @markers =
+    [{
+        lat: @boat.latitude,
+        lng: @boat.longitude
+      }]
+    authorize @boat
   end
 
   def update
@@ -36,10 +47,11 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:title, :image, :price, :city, :address, :size, :description)
+    params.require(:boat).permit(:title, :price, :city, :address, :size, :description, images: [])
   end
 
   def find_boat
     @boat = Boat.find(params[:id])
+    # authorize @boat
   end
 end

@@ -32,11 +32,11 @@
 >>>>>>> 467cb7114a1be4df5803e4f9a272901d7ef8a02b
 =======
 <div class="featured-boats">
-  <div class="col-sm-12 d-flex flex-wrap flex-gap-2">
+  <div class="boat-cards">
     <% @boats.each  do |boat| %>
       <a href="<%=boat_path(boat)%>">
-        <div class="card" style="width: 18rem;">
-          <%=cl_image_tag boat.image.key, crop: :fill %>
+        <div class="card" >
+          <%=cl_image_tag boat.images[0].key, crop: :fill %>
           <div class="card-body">
             <h3 class="card-title"><%=boat.title%> </h3>
             <p class="card-body"><%=  boat.description %></p>

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: [:show, :destroy]
   before_action :find_boat, only: [:new, :create]
-  skip_before_action :authenticate_user!, only: [:new]
+  skip_before_action :authenticate_user!
 
   def index
     @bookings = current_user.bookings
@@ -12,12 +12,14 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.boat = @boat
+    authorize @booking
 
     if @booking.save
       redirect_to boats_path

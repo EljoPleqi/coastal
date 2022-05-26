@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "mapbox-gl/dist/mapbox-gl";
 
 // Your CSS partials
 @import "components/index";
@@ -21,4 +22,8 @@
 
 .footer {
   background-color: #0e2433;
+}
+
+.bg-dark {
+  background-color: rgba(0, 0, 0, 0);
 }
