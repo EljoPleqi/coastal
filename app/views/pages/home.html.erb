@@ -6,8 +6,18 @@
     </div>
   </div>
 <%# search %>
-<%= form_tag boats_path, method: :get do %>
+<%= form_tag boats_path,class: 'search-form', method: :get do  %>
   <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a boat"
+  %>
+  <%= date_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a coast"
+  %>
+  <%= date_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find a boat"

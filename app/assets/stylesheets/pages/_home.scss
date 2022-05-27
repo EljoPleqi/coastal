@@ -23,8 +23,9 @@ p {
   margin: 0;
   padding: 0;
 }
-.navbar-toggler-icon {
-  color: white;
+.navbar-toggler {
+  border: solid 1px white;
+  // background-color: white;
 }
 .navbar-nav .nav-item {
   font-size: 1.2em;
@@ -47,6 +48,16 @@ p {
 .hero-text {
   color: #f1f6f9;
   font-size: 3em;
+}
+
+// search
+
+.search-form {
+  background-color: #f1f6f9;
+  padding: 3em 1em;
+  border-radius: 11px;
+
+  margin: 0 1em;
 }
 
 // Boat container
@@ -75,13 +86,13 @@ p {
   border-style: none;
   border-radius: 11px;
   width: 300px;
-  height: 450px;
+  height: auto;
 
   .card-body {
     display: flex;
     flex-direction: column;
     color: #0e2433;
-    margin: 2em 1em 0em;
+    margin: 2em 1em 1em;
     gap: 2.5em;
   }
 
@@ -118,7 +129,7 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1em;
+  gap: 3em;
 }
 @media only screen and (max-min: 960px) {
   .featured-boats {

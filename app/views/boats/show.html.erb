@@ -8,18 +8,18 @@
 </div>
 <div class="boat-page">
 
-  <div class="boat-details mt-5 mb-5">
+  <div class="boat-details mt-3 mb-1">
     <p class="title"><%= @boat.title %></p>
   </div>
 
-  <div class="mt-5 mb-5">
+  <div class="mt-2 mb-5">
   <div class="d-flex">
         <p><%= pluralize(@boat.reviews.size, "Review") %>&nbsp;</p>
         <span><i class="fas fa-star"></i></span>
     </div>
-    <p class="boat-info">price: <%= @boat.price %></p>
-    <p class="boat-info">space: <%= @boat.size %></p>
-    <p><%= @boat.address %></p>
+    <p class="boat-info">price: <%= @boat.price %> € </p>
+    <p class="boat-info">space: <%= @boat.size %> ft</p>
+    <br>
     <p><%= @boat.description %></p>
   </div>
 

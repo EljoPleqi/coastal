@@ -25,6 +25,22 @@
   background-color: #0e2433;
 }
 
-.bg-dark {
-  background-color: rgba(0, 0, 0, 0);
+.navbar-toggler {
+  border-color: rgb(255, 255, 255);
+}
+
+.menu-icon {
+  font-size: 1em;
+}
+.navbar-light {
+  // color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 56, 82, 1);
+}
+
+// .navbar.navbar-light .navbar-toggler .navbar-toggler-icon {
+//   color: #fff;
+// }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
 }
